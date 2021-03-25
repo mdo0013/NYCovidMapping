@@ -161,7 +161,7 @@ let dataUrls = ['publick12.geojson', 'schooldistrict_boundary.geojson','income_d
 
 dataUrls.forEach((url, index) => {
    // fetch the data
-   fetch(`geojson/${url}`)
+   fetch(`${url}`)
    .then(res => res.json())
    .then(data  => {
       // console.log(data);
@@ -275,7 +275,7 @@ map.on('overlayadd', function(e) {
 
 // Labels
 var collisionLayer = L.LayerGroup.collision({margin:5});
-fetch('geojson/county_names.geojson')
+fetch('county_names.geojson')
 .then(res => res.json())
 .then(data => {
    console.log("names");
@@ -314,7 +314,7 @@ var broadband = L.geoJSON(null, {
    }
 }).addTo(map);
 
-fetch('geojson/broadband.pbf', { responseType:'ArrayBuffer'})
+fetch('broadband.pbf', { responseType:'ArrayBuffer'})
 .then(res => res.arrayBuffer())
 .then(data => {
    console.log("PBF file");
